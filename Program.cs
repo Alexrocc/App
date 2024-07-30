@@ -33,6 +33,7 @@ class QueryHandler
             ModifyData(lastid);
         }
         ReadData();
+        DeleteData(lastid);
     }
     public static void ReadData()
     {
@@ -120,6 +121,34 @@ class QueryHandler
                     command.Parameters.AddWithValue("@description", "Updated project description");
                     command.Parameters.AddWithValue("@id", id);
                     command.ExecuteNonQuery();
+                }
+            }
+        }
+        catch (SqlException ex)
+        {
+            Console.WriteLine($"{ex}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"{ex}");
+        }
+    }
+
+    //deleting data
+    public static void DeleteData(int id)
+    {
+        string connString = """Server=DESKTOP-5NUP6OJ\SQLEXPRESS; User = sa; Password = sa; Database=PMSAPI;""";
+        string insertQuery = "DELETE FROM projects WHERE id = @id";
+        try
+        {
+            using (var conn = new SqlConnection(connString))
+            {
+                conn.Open();
+                using (var command = new SqlCommand(insertQuery, conn))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    command.ExecuteNonQuery();
+                    Console.WriteLine("Data succesfully deleted!");
                 }
             }
         }
