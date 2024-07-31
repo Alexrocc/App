@@ -96,8 +96,16 @@ class DapperCrud
         return result;
     }
 
-    public static void DeleteData()
+    public static void DeleteData(string conn, int id)
     {
-
+        string query = """
+        DELETE FROM projects
+        WHERE id = @id        
+        """;
+        using (IDbConnection db = new SqlConnection(conn))
+        {
+            db.Execute(query, new { id });
+            // db.QuerySingle<long>(query, new { id, projName = name, description = desc, start_date = start, end_date = end }); //returns the last inserted id
+        }
     }
 }
