@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WStviSj+ozQ=",
+  "dgSpecHash": "CfI5UlN0WSw=",
   "success": true,
   "projectFilePath": "C:\\Users\\alero\\Desktop\\project\\App\\App.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\alero\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\alero\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
     "C:\\Users\\alero\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\alero\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
