@@ -3,6 +3,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using Dapper;
+using Microsoft.VisualBasic;
 
 class DapperCrud()
 {
@@ -17,15 +18,27 @@ class DapperCrud()
 
     public static List<Project> ReadData(int limit, string conn)
     {
-        using (IDbConnection db = new SqlConnection(conn))
+        try
         {
-            string query = """
+
+            using (IDbConnection db = new SqlConnection(conn))
+            {
+                string query = """
                 SELECT name as Name, description as Description,
                 start_date as StartDate, end_date as EndDate, 
                 category_id as CategoryId, manager_id as ManagerID 
-                FROM projects LIMIT @limit
+                FROM projects 
+                ORDER BY id
+                OFFSET @limit ROWS
+                FETCH NEXT @limit ROWS ONLY
             """;
-            return db.Query<Project>(query, new { limit }).ToList();
+                return db.Query<Project>(query, new { limit }).ToList();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+            return new List<Project>();
         }
     }
 

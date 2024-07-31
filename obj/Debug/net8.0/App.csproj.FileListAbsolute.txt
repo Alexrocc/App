@@ -23,3 +23,4 @@ C:\Users\alero\Desktop\project\App\obj\Debug\net8.0\App.csproj.Up2Date
 C:\Users\alero\Desktop\project\App\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\alero\Desktop\project\App\bin\Debug\net8.0\MySqlConnector.dll
 C:\Users\alero\Desktop\project\App\obj\Debug\net8.0\App.sourcelink.json
+C:\Users\alero\Desktop\project\App\bin\Debug\net8.0\Dapper.dll
